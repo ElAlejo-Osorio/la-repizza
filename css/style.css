@@ -1,0 +1,1446 @@
+/* ===========================
+   RESET GENERAL
+=========================== */
+:root{
+
+    --negro:#0B0B0B;
+
+    --gris:#1E1E1E;
+
+    --amarillo:#FFC107;
+
+    --rojo:#8B0000;
+
+    --blanco:#FFFFFF;
+
+    --grisTexto:#CFCFCF;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    -webkit-tap-highlight-color:transparent;
+    background:var(--negro);
+}
+
+body{
+
+    font-family:'Poppins', Arial, Helvetica, sans-serif;
+
+    background:var(--negro);
+
+    color:var(--blanco);
+
+    overscroll-behavior-y:none;
+
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 70px;
+
+    background:transparent;
+
+    backdrop-filter:blur(0px);
+
+    z-index:999;
+
+    transition:background .4s ease, backdrop-filter .4s ease, box-shadow .4s ease, height .3s ease;
+
+}
+
+.navbar.navbar-scrolled{
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+    height:70px;
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+}
+
+.logo span{
+
+    color:var(--amarillo)
+
+}
+
+.menu{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:40px;
+
+}
+
+.menu a{
+
+    position:relative;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    transition:color .3s;
+
+    padding-bottom:4px;
+
+}
+
+.menu a::after{
+
+    content:'';
+
+    position:absolute;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:0;
+
+    height:2px;
+
+    background:var(--amarillo);
+
+    transition:width .3s ease;
+
+}
+
+.menu a:hover{
+
+    color:#FFC107;
+
+}
+
+.menu a:hover::after{
+
+    width:100%;
+
+}
+
+.btn-whatsapp{
+
+    background:#FFC107;
+
+    color:black;
+
+    text-decoration:none;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-whatsapp:hover{
+
+    transform:translateY(-3px);
+
+}
+/*==============================
+        HERO
+==============================*/
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:120px 70px 60px;
+
+    gap:60px;
+
+    scroll-margin-top:80px;
+
+}
+
+.hero::before,
+.hero::after{
+
+    content:'';
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    z-index:0;
+
+    pointer-events:none;
+
+}
+
+.hero::before{
+
+    width:420px;
+
+    height:420px;
+
+    background:var(--amarillo);
+
+    opacity:.10;
+
+    top:-80px;
+
+    right:5%;
+
+}
+
+.hero::after{
+
+    width:380px;
+
+    height:380px;
+
+    background:var(--rojo);
+
+    opacity:.14;
+
+    bottom:-100px;
+
+    left:8%;
+
+}
+
+.hero-texto{
+
+    position:relative;
+
+    z-index:1;
+
+    flex:1;
+
+}
+
+.etiqueta{
+
+    display:inline-block;
+
+    background:rgba(255, 193, 7, .12);
+
+    border:1px solid rgba(255, 193, 7, .4);
+
+    color:var(--amarillo);
+
+    padding:10px 24px;
+
+    border-radius:90px;
+
+    margin-bottom:25px;
+
+    animation:pulsoEtiqueta 2.8s ease-in-out infinite;
+
+}
+
+@keyframes pulsoEtiqueta{
+
+    0%, 100%{
+        box-shadow:0 0 0 0 rgba(255, 193, 7, .35);
+    }
+
+    50%{
+        box-shadow:0 0 0 10px rgba(255, 193, 7, 0);
+    }
+
+}
+
+.hero-texto h1{
+
+    font-size:clamp(28px, 4vw + 16px, 50px);
+
+    line-height:1.15;
+
+    margin-bottom:25px;
+
+}
+
+.hero-texto p{
+
+    font-size:clamp(15px, 1vw + 12px, 20px);
+
+    color:#cfcfcf;
+
+    line-height:1.7;
+
+    margin-bottom:35px;
+
+}
+
+.botones{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.btn-principal,
+.btn-secundario{
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:inline-block;
+
+}
+
+.btn-principal::before,
+.btn-secundario::before{
+
+    content:'';
+
+    position:absolute;
+
+    top:0;
+
+    left:-150%;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.5), transparent);
+
+    transform:skewX(-20deg);
+
+    transition:left .6s ease;
+
+}
+
+.btn-principal:hover::before,
+.btn-secundario:hover::before{
+
+    left:150%;
+
+}
+
+.btn-principal{
+
+    background:#FFC107;
+
+    color:black;
+
+    text-decoration:none;
+
+    padding:16px 35px;
+
+    border-radius:50px;
+
+    font-weight:bold;
+
+    transition:transform .3s, box-shadow .3s;
+
+}
+
+.btn-principal:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 25px rgba(255,193,7,.35);
+
+}
+
+.btn-secundario{
+
+    border:2px solid #FFC107;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:16px 35px;
+
+    border-radius:50px;
+
+    transition:background .3s, color .3s, transform .3s;
+
+}
+
+.btn-secundario:hover{
+
+    background:#FFC107;
+
+    color:black;
+
+    transform:translateY(-5px);
+
+}
+
+.hero-imagen{
+
+    position:relative;
+
+    z-index:1;
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    perspective:1000px;
+
+    transition:transform .15s ease-out;
+
+    will-change:transform;
+
+}
+
+.hero-imagen img{
+
+    width:100%;
+
+    max-width:600px;
+
+    aspect-ratio:4/3;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    animation:flotar 4s ease-in-out infinite;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+
+}
+
+@keyframes flotar{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.logo img{
+
+    width:55px;
+
+    height:55px;
+
+    object-fit:contain;
+
+}
+.btn-whatsapp{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+}
+
+.menu-toggle{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    color:var(--blanco);
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    padding:8px;
+
+}
+/* ==========================================
+   SECCIÓN DE MENÚ DINÁMICO
+   ========================================== */
+.menu-seccion {
+    padding: 100px 70px;
+    background: var(--negro);
+    text-align: center;
+    scroll-margin-top: 80px;
+}
+
+.titulo-seccion {
+    font-size: clamp(26px, 3vw + 18px, 40px);
+    margin-bottom: 40px;
+    color: var(--blanco);
+    position: relative;
+    display: inline-block;
+}
+
+.titulo-seccion::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--amarillo);
+    border-radius: 2px;
+}
+
+/* Filtros de Categorías */
+.categorias-filtros {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filtro-indicador {
+    position: absolute;
+    top: 0;
+    height: 0;
+    background: var(--amarillo);
+    border-radius: 50px;
+    z-index: 0;
+    transition: left 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+                top 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+                width 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+                height 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+    pointer-events: none;
+}
+
+.btn-filtro {
+    position: relative;
+    z-index: 1;
+    background: var(--gris);
+    color: var(--grisTexto);
+    border: 2px solid transparent;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-filtro:not(.activo):hover {
+    background: #2a2a2a;
+    color: var(--blanco);
+    transform: translateY(-2px);
+}
+
+.btn-filtro.activo {
+    background: transparent;
+    color: var(--negro);
+}
+
+/* Contenedor Grid del Menú */
+.menu-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjeta del Producto */
+.producto-card {
+    background: var(--gris);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(255, 193, 7, 0.1);
+}
+
+/* Contenedor de Imagen de la tarjeta */
+.producto-img-container {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: linear-gradient(90deg, var(--gris) 25%, #2a2a2a 50%, var(--gris) 75%);
+    background-size: 200% 100%;
+    animation: skeletonShimmer 1.4s ease-in-out infinite;
+}
+
+.producto-img-container.img-cargada {
+    animation: none;
+    background: none;
+}
+
+@keyframes skeletonShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.producto-img-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.55), transparent 55%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.producto-card:hover .producto-img-container::after {
+    opacity: 1;
+}
+
+.producto-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.4s ease;
+}
+
+.producto-img-container.img-cargada img {
+    opacity: 1;
+}
+
+.producto-card:hover .producto-img-container img {
+    transform: scale(1.1);
+}
+
+/* Badge / Etiqueta de la tarjeta */
+.producto-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--rojo);
+    color: var(--blanco);
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50px;
+    z-index: 2;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* Información del Producto */
+.producto-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.producto-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--blanco);
+}
+
+.producto-info .descripcion {
+    font-size: 14px;
+    color: var(--grisTexto);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Footer de la tarjeta (Precio + Botón) */
+.producto-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.producto-footer .precio {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--amarillo);
+}
+
+.btn-pedir {
+    background: var(--amarillo);
+    color: var(--negro);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+}
+
+.btn-pedir:hover {
+    background: var(--blanco);
+}
+/* ==========================================
+   SECCIÓN NOSOTROS
+   ========================================== */
+.nosotros-seccion {
+    padding: 100px 70px;
+    background: var(--gris);
+    text-align: center;
+    scroll-margin-top: 80px;
+}
+
+.nosotros-contenedor {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+}
+
+.nosotros-texto {
+    color: var(--grisTexto);
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 700px;
+}
+
+.nosotros-valores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 100%;
+}
+
+.valor-card {
+    background: var(--negro);
+    border-radius: 20px;
+    padding: 35px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.valor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(255, 193, 7, 0.12);
+}
+
+.valor-card i {
+    font-size: 32px;
+    color: var(--amarillo);
+    margin-bottom: 15px;
+}
+
+.valor-card h3 {
+    font-size: 19px;
+    color: var(--blanco);
+    margin-bottom: 8px;
+}
+
+.valor-card p {
+    font-size: 14px;
+    color: var(--grisTexto);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   SECCIÓN DE PROMOCIONES
+   ========================================== */
+.promos-seccion {
+    padding: 80px 70px;
+    background: var(--gris); /* Color de fondo alternado para contrastar */
+    text-align: center;
+    scroll-margin-top: 80px;
+}
+
+.subtitulo-seccion {
+    color: var(--grisTexto);
+    margin-top: -30px;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.promos-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.promo-card {
+    background:
+        linear-gradient(var(--negro), var(--negro)) padding-box,
+        linear-gradient(120deg, var(--rojo), var(--amarillo), var(--rojo)) border-box;
+    background-size: 100% 100%, 250% 250%;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 35px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: bordeGradiente 6s linear infinite;
+}
+
+.promo-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+@keyframes bordeGradiente {
+    0% { background-position: 0% 0%, 0% 50%; }
+    100% { background-position: 0% 0%, 200% 50%; }
+}
+
+.promo-badge {
+    position: absolute;
+    top: -15px;
+    right: 25px;
+    background: var(--amarillo);
+    color: var(--negro);
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    animation: pulsoBadge 2s ease-in-out infinite;
+}
+
+@keyframes pulsoBadge {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,193,7,.5); }
+    50% { box-shadow: 0 0 0 8px rgba(255,193,7,0); }
+}
+
+.promo-info h3 {
+    font-size: 24px;
+    color: var(--amarillo);
+    margin-bottom: 10px;
+}
+
+.promo-info p {
+    color: var(--grisTexto);
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.promo-precios {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.precio-antes {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 16px;
+}
+
+.precio-now, .precio-ahora {
+    color: var(--blanco);
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================== */
+.footer-sitio {
+    background: #0d0d0d;
+    padding: 60px 70px 20px;
+    border-top: 1px solid #222;
+}
+
+.footer-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-bloque h3 {
+    color: var(--amarillo);
+    font-size: 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-bloque p {
+    color: var(--grisTexto);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Redes Sociales */
+.redes-iconos {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.redes-iconos a {
+    color: var(--blanco);
+    background: var(--gris);
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.redes-iconos a:hover {
+    background: var(--amarillo);
+    color: var(--negro);
+    transform: translateY(-3px);
+}
+
+.footer-derechos {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer-derechos p {
+    color: #555;
+    font-size: 13px;
+}
+/* ==========================================
+   BOTÓN FLOTANTE DE WHATSAPP & ANIMACIONES
+   ========================================== */
+.btn-whatsapp-flotante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    text-decoration: none;
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.4s ease;
+}
+
+.btn-whatsapp-flotante.visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Efecto Hover */
+.btn-whatsapp-flotante:hover {
+    transform: scale(1.1) rotate(10deg);
+    background-color: #20ba5a;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+/* Animación de Pulso / Ondas de atención */
+.btn-whatsapp-flotante::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #25d366;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.7;
+    animation: pulsoWhatsapp 2s infinite;
+}
+
+@keyframes pulsoWhatsapp {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* Tooltip emergente sutil */
+.tooltip-whatsapp {
+    position: absolute;
+    left: -100px;
+    background-color: #111;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.btn-whatsapp-flotante:hover .tooltip-whatsapp {
+    opacity: 1;
+    visibility: visible;
+    left: -90px;
+}
+
+/* ==========================================
+   BOTÓN "VOLVER AL MENÚ"
+   ========================================== */
+.btn-subir-menu {
+    position: fixed;
+    bottom: 100px; /* Justo encima del botón de WhatsApp (30px + 60px + 10px de aire) */
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(30, 30, 30, .9);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 193, 7, .35);
+    color: var(--amarillo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-decoration: none;
+    z-index: 9998; /* Justo debajo del de WhatsApp */
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.4s ease, background 0.3s ease;
+}
+
+.btn-subir-menu.visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.btn-subir-menu:hover {
+    background: var(--amarillo);
+    color: var(--negro);
+    transform: scale(1.08);
+}
+/* ==========================================
+   ANIMACIONES DE ENTRADA Y FLOTACIÓN (Paso 2)
+   ========================================== */
+
+/* 1. Definición de los Keyframes */
+
+/* Desplazamiento e incremento de opacidad */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de flotación suave para la imagen del Hero */
+@keyframes flotarSuave {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* 2. Clases de Animación listas para aplicar */
+.animar-entrada {
+    opacity: 0; /* Inicia invisible antes de la animación */
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Retrasos (Delays) estratégicos para que los elementos entren escalonados */
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+/* Clase para la imagen flotante */
+.imagen-flotante {
+    animation: flotarSuave 4s ease-in-out infinite;
+}
+
+/* Scroll Reveal real (activado por IntersectionObserver en app.js) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ==========================================
+   FEEDBACK TÁCTIL (solo dispositivos touch)
+   ========================================== */
+@media (hover: none) and (pointer: coarse) {
+
+    .btn-principal:active,
+    .btn-secundario:active,
+    .btn-pedir:active,
+    .btn-whatsapp:active,
+    .btn-whatsapp-flotante:active,
+    .btn-subir-menu:active,
+    .btn-filtro:active,
+    .btn-subfiltro:active {
+        transform: scale(0.94);
+        transition: transform 0.15s ease;
+    }
+
+    .producto-card:active {
+        transform: scale(0.98);
+    }
+}
+
+/* ==========================================
+   ACCESIBILIDAD: reducir movimiento
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVE Y ADAPTABILIDAD (Paso 3)
+   ========================================== */
+
+@media (max-width: 768px) {
+    
+    /* 1. Ajustes Generales de Contenedores */
+    .hero, .promos-seccion, .menu-seccion, .footer-sitio {
+        padding: 60px 20px; /* Reducimos paddings laterales excesivos de desktop */
+    }
+
+    /* 2. Navbar Adaptable: fila simple (logo + hamburguesa) en vez de columna */
+    .navbar {
+        padding: 15px 20px;
+        padding-top: max(15px, env(safe-area-inset-top));
+    }
+
+    .navbar .logo {
+        order: 1;
+    }
+
+    .navbar nav {
+        order: 2;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 3;
+    }
+
+    .navbar .btn-whatsapp {
+        order: 4;
+        display: none; /* Ocultamos el botón secundario del navbar en móvil ya que el flotante toma el protagonismo absoluto */
+    }
+
+    .navbar nav .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 78%;
+        max-width: 320px;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(10, 10, 10, .97);
+        backdrop-filter: blur(14px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        transition: right 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        z-index: 1000;
+        padding: 40px 20px;
+        padding-top: max(40px, env(safe-area-inset-top));
+        flex-wrap: nowrap;
+    }
+
+    .navbar nav .menu.menu-abierto {
+        right: 0;
+        box-shadow: -10px 0 40px rgba(0,0,0,.5);
+    }
+
+    .navbar nav .menu a {
+        font-size: 20px;
+    }
+
+    /* Fondo oscuro detrás del drawer al abrirlo */
+    .menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,.55);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+        z-index: 998;
+    }
+
+    .menu-overlay.activo {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* 3. Reestructuración del Hero (Mobile First) */
+    .hero {
+        flex-direction: column-reverse; /* Mandamos la imagen arriba del texto para enganchar visualmente con la comida */
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero-texto {
+        max-width: 100%;
+    }
+
+    .hero-texto h1 {
+        line-height: 1.3; /* El tamaño ya lo resuelve clamp() en la regla base */
+    }
+
+    .hero-texto .botones {
+        flex-direction: column; /* Botones uno abajo del otro para facilitar el clic con el pulgar */
+        width: 100%;
+        gap: 12px;
+    }
+
+    .hero-texto .botones a {
+        width: 100%;
+        text-align: center;
+        padding: 15px; /* Mayor área de contacto para mejorar la usabilidad (Fitts's Law) */
+    }
+
+    .hero-imagen {
+        width: 100%;
+        max-width: 320px; /* Controlamos el tamaño máximo en pantallas pequeñas */
+        margin: 0 auto;
+    }
+
+    /* 4. Optimización de Promociones y Tarjetas */
+    .promos-contenedor {
+        grid-template-columns: 1fr; /* Una sola columna fluida */
+        gap: 25px;
+    }
+
+    .promo-card {
+        padding: 25px;
+    }
+
+    .promo-info h3 {
+        font-size: 20px;
+    }
+
+    /* 5. Ajustes de Grid del Menú Dinámico */
+    .menu-contenedor {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Mantiene tarjetas compactas y estilizadas */
+        gap: 20px;
+    }
+
+    /* 5.1 Filtros de categoría: fila horizontal deslizable (evita 2 filas apretadas) */
+    .categorias-filtros,
+    .subcategorias-filtros {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        margin: 0 -20px 40px; /* Compensa el padding lateral de la sección para que el scroll llegue al borde */
+        padding: 4px 20px 10px;
+    }
+
+    /* El sticky solo tiene sentido aquí: una sola fila compacta, no dos como en desktop */
+    .categorias-filtros {
+        position: sticky;
+        top: 70px;
+        background: rgba(11, 11, 11, .95);
+        backdrop-filter: blur(10px);
+        z-index: 500;
+        padding-top: 12px;
+    }
+
+    .categorias-filtros::-webkit-scrollbar,
+    .subcategorias-filtros::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    .btn-filtro,
+    .btn-subfiltro {
+        flex-shrink: 0;
+        scroll-snap-align: start;
+    }
+    
+    /* 6. Botón Flotante optimizado para pulgar móvil */
+    .btn-whatsapp-flotante {
+        bottom: max(20px, env(safe-area-inset-bottom));
+        right: max(20px, env(safe-area-inset-right));
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+
+    .btn-subir-menu {
+        bottom: calc(max(20px, env(safe-area-inset-bottom)) + 65px); /* 55px del botón WhatsApp + 10px de aire */
+        right: max(20px, env(safe-area-inset-right));
+        width: 44px;
+        height: 44px;
+        font-size: 17px;
+    }
+    
+    .tooltip-whatsapp {
+        display: none !important; /* Los tooltips basados en hover no existen en pantallas táctiles */
+    }
+
+    /* 7. Blobs decorativos reducidos en móvil (evitar peso visual excesivo) */
+    .hero::before,
+    .hero::after {
+        width: 220px;
+        height: 220px;
+        filter: blur(60px);
+    }
+
+    /* 8. En pantallas táctiles no hay tilt de mouse: se desactiva por JS,
+          aquí solo evitamos que quede transform residual */
+    /* 9. Nosotros: valores en una sola columna en móvil */
+    .nosotros-valores {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .nosotros-texto {
+        font-size: 15px;
+    }
+}
+.subcategorias-filtros {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 45px;
+    flex-wrap: wrap;
+}
+
+.btn-subfiltro {
+    padding: 8px 18px;
+    border: 1px solid var(--gris);
+    background-color: var(--negro);
+    color: var(--grisTexto);
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.btn-subfiltro.activo,
+.btn-subfiltro:hover {
+    background-color: var(--amarillo);
+    color: var(--negro);
+    border-color: var(--amarillo);
+}
