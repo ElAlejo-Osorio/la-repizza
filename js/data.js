@@ -37,7 +37,7 @@ const productosMenu = [
         categoria: "salchipapas",
         precio: 24000,
         descripcion: "Papa a la francesa, salchicha americana, queso, chorizo de cerdo, tocineta y platano maduro.",
-        imagen: "img/salchipersonalVen.jpg"
+        imagen: "img/salchipersonalven.jpg"
     },
      {
         id: 6,
@@ -45,7 +45,7 @@ const productosMenu = [
         categoria: "salchipapas",
         precio: 13000,
         descripcion: "Papa a la francesa, salchicha americana, queso, chorizo de cerdo, tocineta y platano maduro.",
-        imagen: "img/salchijuniorVen.jpg"
+        imagen: "img/salchijuniorven.jpg"
     },
      {
         id: 7,
